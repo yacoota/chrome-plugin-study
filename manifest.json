@@ -1,0 +1,35 @@
+{
+  "name": "插件学习整理",
+  "description": "浏览器插件学习整理",
+  "version": "1.0",
+  "manifest_version": 2,
+  "permissions": ["storage","alarms","tabs","notifications","http://*/*","https://*/*"],
+  "background": {
+    "scripts": ["script/jquery.3.4.1.min.js", "script/sockjs.min.js", "script/stomp.min.js", "script/background.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["script/jquery.3.4.1.min.js", "script/sockjs.min.js", "script/stomp.min.js", "script/content-script.js"],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "browser_action":	{
+		"default_icon": "img/ring-on.png",
+		"default_title": "插件学习",
+		"default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "options_ui":	{
+		"page": "options.html",
+		"chrome_style": true
+  },
+  "icons": {
+    "16": "img/drink_water16.png",
+    "32": "img/drink_water32.png",
+    "48": "img/drink_water48.png",
+    "128": "img/drink_water128.png"
+  }
+}
