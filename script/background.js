@@ -1,3 +1,9 @@
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  if(request.cmd === 'background') {
+      console.log("获取缓存的WS实例：%o", request);
+  }
+});
+
 chrome.runtime.onInstalled.addListener(() => {
   console.log('chrome.runtime.installed event : %o',new Date());
 });
